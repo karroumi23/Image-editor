@@ -12,12 +12,16 @@ let img = document.getElementById("img");
 let reset = document.querySelector('span');
 let imgBox = document.querySelector('.img-box')
 
+
+// onload function 
 window.onload = function (){
   download.style.display = "none";
   reset.style.display = "none";
   imgBox.style.display = "none"
 }
 
+
+// upload function 
 upload.onchange = function(){
   download.style.display = "block";
   reset.style.display = "block";
@@ -29,3 +33,19 @@ upload.onchange = function(){
     // ??????????????????????
   }
 }
+// filters function 
+let filters = document.querySelectorAll("ul li input");
+filters.forEach(filter =>{
+   filter.addEventListener('input',function(){
+    img.style.filter = `
+    saturate(${saturate.value}%)
+    contrast(${contrast.value}%)
+    brightness(${brightness.value}%)
+    sepia(${sepia.value}%)
+    grayscale(${grayscale.value})
+    blur(${blur.value}px)
+    hue-rotate(${huerotate.value}deg)
+    `
+   })
+})
+
